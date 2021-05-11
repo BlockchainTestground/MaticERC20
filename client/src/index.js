@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+var erc_contract
+var accounts
+var web3
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const updateUi = async () => {
+  console.log("Polling state...")
+  balance = await erc_contract.methods.balanceOf(accounts[0]).call()
+  symbol = await erc_contract.methods.symbol().call()
+  console.log("==========")
+  console.log(balance)
+  ui_msg.text = "You have " + balance/1000000000000000000 + " " + symbol
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const roll = async () => {
+  ui_msg.text = "Minting..."
+  await erc_contract.methods
+    .mint("1000" + "000000000000000000")
+    .send({ from: accounts[0], gas: 400000 },
+    function(err, res){
+    })
+  updateUi()
+}
+
+async function maticDiceGameApp() {
+  var awaitWeb3 = async function() {
+    web3 = await getWeb3();
+    var awaitERCContract = async function() {
+      erc_contract = await getMyERC20Contract(web3)
+      var awaitAccounts = async function() {
+        accounts = await web3.eth.getAccounts()
+        updateUi()
+      }
+      awaitAccounts()
+    }
+    awaitERCContract()
+  }
+  awaitWeb3()
+}
+maticDiceGameApp()
