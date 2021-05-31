@@ -21,6 +21,7 @@
   var game = new Phaser.Game(config)
   var _this
   var ui_msg
+  var txt_staking_balance
 
   function preload ()
   {
@@ -29,6 +30,8 @@
     this.load.image('sky', 'assets/space3.png');
     this.load.image('faucet', 'assets/faucet.jpg');
     this.load.image('button', 'assets/button.png');
+    this.load.image('stake', 'assets/stake.png');
+    this.load.image('unstake', 'assets/unstake.png');
   }
 
   var characters = []
@@ -40,10 +43,21 @@
     this.add.image(300, 400, 'faucet');
 
     ui_msg = this.add.text(50, 120, "", { font: "70px Arial Black", fill: "#00FFFF" })
+    txt_staking_balance = this.add.text(50, 220, "", { font: "70px Arial Black", fill: "#00FFFF" })
 
-    this.rollBtn = this.add.sprite(650, 50, 'button').setInteractive();
-    this.rollBtn.on('pointerdown', function (event) {
-      roll()
+    this.mintBtn = this.add.sprite(650, 50, 'button').setInteractive();
+    this.mintBtn.on('pointerdown', function (event) {
+      mint()
+    });
+
+    this.stakeBtn = this.add.sprite(650, 400, 'stake').setInteractive();
+    this.stakeBtn.on('pointerdown', function (event) {
+      stake()
+    });
+
+    this.unstakeBtn = this.add.sprite(650, 500, 'unstake').setInteractive();
+    this.unstakeBtn.on('pointerdown', function (event) {
+      unstake()
     });
   }
 

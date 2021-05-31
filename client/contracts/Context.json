@@ -1,7 +1,7 @@
 {
   "contractName": "Context",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/turupawn/Projects/Blockchain/Games/MaticERC777/contracts/dependencies/Context.sol\":\"Context\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/turupawn/Projects/Blockchain/Games/MaticERC777/contracts/dependencies/Context.sol\":{\"keccak256\":\"0xba6ddba08488c0fd0249ecbf73d94db554b664e5460e05335633d38988fb1947\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8d39e2090185cd7852447d004adb908b40e2c7adc8831ee1a7d6eb6dea664ddc\",\"dweb:/ipfs/QmQZPEkHcJ8hbEbRr8vvUrCWPs7XRBmwLXbUQc9Mmx39Lx\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/turupawn/Projects/Blockchain/Games/MaticERC777/contracts/dependencies/Context.sol\":\"Context\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/turupawn/Projects/Blockchain/Games/MaticERC777/contracts/dependencies/Context.sol\":{\"keccak256\":\"0xba6ddba08488c0fd0249ecbf73d94db554b664e5460e05335633d38988fb1947\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8d39e2090185cd7852447d004adb908b40e2c7adc8831ee1a7d6eb6dea664ddc\",\"dweb:/ipfs/QmQZPEkHcJ8hbEbRr8vvUrCWPs7XRBmwLXbUQc9Mmx39Lx\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -15,15 +15,15 @@
     "absolutePath": "/home/turupawn/Projects/Blockchain/Games/MaticERC777/contracts/dependencies/Context.sol",
     "exportedSymbols": {
       "Context": [
-        410
+        547
       ]
     },
-    "id": 411,
+    "id": 548,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 389,
+        "id": 526,
         "literals": [
           "solidity",
           "^",
@@ -39,23 +39,24 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 410,
+        "id": 547,
         "linearizedBaseContracts": [
-          410
+          547
         ],
         "name": "Context",
+        "nameLocation": "572:7:3",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 397,
+              "id": 534,
               "nodeType": "Block",
               "src": "648:34:3",
               "statements": [
                 {
                   "expression": {
                     "expression": {
-                      "id": 394,
+                      "id": 531,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -66,7 +67,7 @@
                         "typeString": "msg"
                       }
                     },
-                    "id": 395,
+                    "id": 532,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -79,36 +80,38 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 393,
-                  "id": 396,
+                  "functionReturnParameters": 530,
+                  "id": 533,
                   "nodeType": "Return",
                   "src": "658:17:3"
                 }
               ]
             },
-            "id": 398,
+            "id": 535,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_msgSender",
+            "nameLocation": "595:10:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 390,
+              "id": 527,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "605:2:3"
             },
             "returnParameters": {
-              "id": 393,
+              "id": 530,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 392,
+                  "id": 529,
                   "mutability": "mutable",
                   "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 398,
+                  "scope": 535,
                   "src": "639:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -117,7 +120,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 391,
+                    "id": 528,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "639:7:3",
@@ -132,7 +135,7 @@
               ],
               "src": "638:9:3"
             },
-            "scope": 410,
+            "scope": 547,
             "src": "586:96:3",
             "stateMutability": "view",
             "virtual": true,
@@ -140,31 +143,31 @@
           },
           {
             "body": {
-              "id": 408,
+              "id": 545,
               "nodeType": "Block",
               "src": "755:165:3",
               "statements": [
                 {
                   "expression": {
-                    "id": 403,
+                    "id": 540,
                     "name": "this",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 4294967268,
                     "src": "765:4:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Context_$410",
+                      "typeIdentifier": "t_contract$_Context_$547",
                       "typeString": "contract Context"
                     }
                   },
-                  "id": 404,
+                  "id": 541,
                   "nodeType": "ExpressionStatement",
                   "src": "765:4:3"
                 },
                 {
                   "expression": {
                     "expression": {
-                      "id": 405,
+                      "id": 542,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -175,7 +178,7 @@
                         "typeString": "msg"
                       }
                     },
-                    "id": 406,
+                    "id": 543,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -188,36 +191,38 @@
                       "typeString": "bytes calldata"
                     }
                   },
-                  "functionReturnParameters": 402,
-                  "id": 407,
+                  "functionReturnParameters": 539,
+                  "id": 544,
                   "nodeType": "Return",
                   "src": "898:15:3"
                 }
               ]
             },
-            "id": 409,
+            "id": 546,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_msgData",
+            "nameLocation": "697:8:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 399,
+              "id": 536,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "705:2:3"
             },
             "returnParameters": {
-              "id": 402,
+              "id": 539,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 401,
+                  "id": 538,
                   "mutability": "mutable",
                   "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 409,
+                  "scope": 546,
                   "src": "739:14:3",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -226,7 +231,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 400,
+                    "id": 537,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "739:5:3",
@@ -240,15 +245,16 @@
               ],
               "src": "738:16:3"
             },
-            "scope": 410,
+            "scope": 547,
             "src": "688:232:3",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           }
         ],
-        "scope": 411,
-        "src": "554:368:3"
+        "scope": 548,
+        "src": "554:368:3",
+        "usedErrors": []
       }
     ],
     "src": "33:889:3"
@@ -257,15 +263,15 @@
     "absolutePath": "/home/turupawn/Projects/Blockchain/Games/MaticERC777/contracts/dependencies/Context.sol",
     "exportedSymbols": {
       "Context": [
-        410
+        547
       ]
     },
-    "id": 411,
+    "id": 548,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 389,
+        "id": 526,
         "literals": [
           "solidity",
           "^",
@@ -281,23 +287,24 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 410,
+        "id": 547,
         "linearizedBaseContracts": [
-          410
+          547
         ],
         "name": "Context",
+        "nameLocation": "572:7:3",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 397,
+              "id": 534,
               "nodeType": "Block",
               "src": "648:34:3",
               "statements": [
                 {
                   "expression": {
                     "expression": {
-                      "id": 394,
+                      "id": 531,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -308,7 +315,7 @@
                         "typeString": "msg"
                       }
                     },
-                    "id": 395,
+                    "id": 532,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -321,36 +328,38 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 393,
-                  "id": 396,
+                  "functionReturnParameters": 530,
+                  "id": 533,
                   "nodeType": "Return",
                   "src": "658:17:3"
                 }
               ]
             },
-            "id": 398,
+            "id": 535,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_msgSender",
+            "nameLocation": "595:10:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 390,
+              "id": 527,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "605:2:3"
             },
             "returnParameters": {
-              "id": 393,
+              "id": 530,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 392,
+                  "id": 529,
                   "mutability": "mutable",
                   "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 398,
+                  "scope": 535,
                   "src": "639:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -359,7 +368,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 391,
+                    "id": 528,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "639:7:3",
@@ -374,7 +383,7 @@
               ],
               "src": "638:9:3"
             },
-            "scope": 410,
+            "scope": 547,
             "src": "586:96:3",
             "stateMutability": "view",
             "virtual": true,
@@ -382,31 +391,31 @@
           },
           {
             "body": {
-              "id": 408,
+              "id": 545,
               "nodeType": "Block",
               "src": "755:165:3",
               "statements": [
                 {
                   "expression": {
-                    "id": 403,
+                    "id": 540,
                     "name": "this",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 4294967268,
                     "src": "765:4:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Context_$410",
+                      "typeIdentifier": "t_contract$_Context_$547",
                       "typeString": "contract Context"
                     }
                   },
-                  "id": 404,
+                  "id": 541,
                   "nodeType": "ExpressionStatement",
                   "src": "765:4:3"
                 },
                 {
                   "expression": {
                     "expression": {
-                      "id": 405,
+                      "id": 542,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -417,7 +426,7 @@
                         "typeString": "msg"
                       }
                     },
-                    "id": 406,
+                    "id": 543,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -430,36 +439,38 @@
                       "typeString": "bytes calldata"
                     }
                   },
-                  "functionReturnParameters": 402,
-                  "id": 407,
+                  "functionReturnParameters": 539,
+                  "id": 544,
                   "nodeType": "Return",
                   "src": "898:15:3"
                 }
               ]
             },
-            "id": 409,
+            "id": 546,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_msgData",
+            "nameLocation": "697:8:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 399,
+              "id": 536,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "705:2:3"
             },
             "returnParameters": {
-              "id": 402,
+              "id": 539,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 401,
+                  "id": 538,
                   "mutability": "mutable",
                   "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 409,
+                  "scope": 546,
                   "src": "739:14:3",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -468,7 +479,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 400,
+                    "id": 537,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "739:5:3",
@@ -482,26 +493,27 @@
               ],
               "src": "738:16:3"
             },
-            "scope": 410,
+            "scope": 547,
             "src": "688:232:3",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           }
         ],
-        "scope": 411,
-        "src": "554:368:3"
+        "scope": 548,
+        "src": "554:368:3",
+        "usedErrors": []
       }
     ],
     "src": "33:889:3"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-05-31T17:59:40.825Z",
+  "updatedAt": "2021-05-31T22:22:59.245Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
