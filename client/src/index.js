@@ -25,7 +25,7 @@ async function maticDiceGameApp() {
   var awaitWeb3 = async function() {
     web3 = await getWeb3();
     var awaitERCContract = async function() {
-      erc_contract = await getMyERC20Contract(web3)
+      erc_contract = await getMyERC777Contract(web3)
       var awaitAccounts = async function() {
         accounts = await web3.eth.getAccounts()
         updateUi()

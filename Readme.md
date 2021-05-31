@@ -15,10 +15,10 @@ truffle compile
 Create a new migration on the `./migrations/` directory following the same sequence. Create a `.secret` file and paste your mnemonic. An then:
 
 ```bash
-truffle migrate --network mumbai
-truffle migrate --network matic
+truffle migrate --network mumbai --reset
+truffle migrate --network matic --reset
 ```
 
 # Current version
 
-Currently deployed at `0xd6d897b8FBF9b82c493dc256A2924bE41efda34f`. ABI is located at `current_version/MyERC20.json`.
+Currently deployed at `0xe62a46f6a61606Adb4877C57a917E790f138fBb0`.

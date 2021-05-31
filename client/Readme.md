@@ -1,4 +1,4 @@
-Simple dice game for matic frontend. The smart contract backbone is located in this [this repo](https://github.com/BlockchainTestground/MaticDiceGame). This contract also uses this [this](https://github.com/BlockchainTestground/MaticERC20) ERC20 Toeken.
+Simple dice game for matic frontend. The smart contract backbone is located in this [this repo](https://github.com/BlockchainTestground/MaticDiceGame). This contract also uses this [this](https://github.com/BlockchainTestground/MaticERC777) ERC777 Token.
 
 # Dependencies
 

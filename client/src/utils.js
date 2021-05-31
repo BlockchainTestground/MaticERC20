@@ -30,8 +30,8 @@ const getGameContract = async (web3) => {
 };
 
 
-const getMyERC20Contract = async (web3) => {
-	const data = await $.getJSON("./contracts/MyERC20.json")
+const getMyERC777Contract = async (web3) => {
+	const data = await $.getJSON("./contracts/MyERC777.json")
 
 	const netId = await web3.eth.net.getId()
 	const deployedNetwork = data.networks[netId]

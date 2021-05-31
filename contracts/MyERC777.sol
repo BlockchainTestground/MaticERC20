@@ -3,7 +3,7 @@ pragma solidity 0.8.0;
 
 import "./dependencies/ERC777.sol";
 
-contract MyERC20 is ERC777 {
+contract MyERC777 is ERC777 {
 
   constructor () public
     ERC777("testground2", "TG2", new address[](0))
