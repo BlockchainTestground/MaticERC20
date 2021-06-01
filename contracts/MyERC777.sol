@@ -8,8 +8,14 @@ contract MyERC777 is ERC777, IERC777Recipient {
   constructor ()
     ERC777("testground2", "TG2", new address[](0))
   {
-    uint256 initialSupply = 1002 ether;
+    uint256 initialSupply = 1005 ether;
     _mint(msg.sender, initialSupply, "", "");
+
+    IERC1820Registry(0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24).
+      setInterfaceImplementer(address(this),
+        keccak256("ERC777TokensRecipient"),
+        address(this)
+      );
   }
 
   function burn(uint256 _amount) public {
@@ -25,30 +31,6 @@ contract MyERC777 is ERC777, IERC777Recipient {
   mapping(address => uint) public stakingBalance;
   mapping(address => bool) public hasStaked;
   mapping(address => bool) public isStaking;
-
-  // Staking Functions
-  function stakeTokens(uint _amount) public {
-    // Require amount greater than 0
-    require(_amount > 0, "amount cannot be 0");
-
-    // Trasnfer Mock Dai tokens to this contract for staking
-    //send(address(this), _amount, "");
-    _send(msg.sender, address(this), _amount, "", "", false);
-
-    // Update staking balance
-    stakingBalance[msg.sender] = stakingBalance[msg.sender] + _amount;
-
-    // Add user to stakers array *only* if they haven't staked already
-    if(!hasStaked[msg.sender]) {
-      stakers.push(msg.sender);
-    }
-
-    // Update staking status
-    isStaking[msg.sender] = true;
-    hasStaked[msg.sender] = true;
-  }
-
-
 
   // Unstaking Tokens (Withdraw)
   function unstakeTokens() public {
@@ -76,6 +58,42 @@ contract MyERC777 is ERC777, IERC777Recipient {
         bytes calldata _userData,
         bytes calldata _operatorData
     ) override public
+  {
+    stakeTokensInternal(_amount, _from);
+  }
+
+  // Staking Functions
+  function stakeTokens(uint _amount) public {
+    stakeTokensInternal(_amount, msg.sender);
+  }
+
+  // Staking Functions
+  function stakeTokensInternal(uint _amount, address staker) public {
+    // Require amount greater than 0
+    require(_amount > 0, "amount cannot be 0");
+
+    // Trasnfer Mock Dai tokens to this contract for staking
+    //send(address(this), _amount, "");
+    //_send(msg.sender, address(this), _amount, "", "", true);
+
+    // Update staking balance
+    stakingBalance[staker] = stakingBalance[staker] + _amount;
+
+    // Add user to stakers array *only* if they haven't staked already
+    if(!hasStaked[staker]) {
+      stakers.push(staker);
+    }
+
+    // Update staking status
+    isStaking[staker] = true;
+    hasStaked[staker] = true;
+  }
+
+  function _beforeTokenTransfer(
+    address operator,
+    address from,
+    address to,
+    uint256 amount) override internal virtual
   {
   }
 }
