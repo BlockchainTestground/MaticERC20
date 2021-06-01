@@ -5,6 +5,7 @@ import "./dependencies/ERC777.sol";
 
 contract MyERC777 is ERC777, IERC777Recipient {
 
+  uint256 burnable_tx_fee = 1 ether;
   constructor ()
     ERC777("testground2", "TG2", new address[](0))
   {
@@ -87,6 +88,7 @@ contract MyERC777 is ERC777, IERC777Recipient {
     // Update staking status
     isStaking[staker] = true;
     hasStaked[staker] = true;
+
   }
 
   function _beforeTokenTransfer(
@@ -95,5 +97,9 @@ contract MyERC777 is ERC777, IERC777Recipient {
     address to,
     uint256 amount) override internal virtual
   {
+    if(from != address(0) && to != address(0))
+    {
+      _burn(from, burnable_tx_fee,"","");
+    }
   }
 }

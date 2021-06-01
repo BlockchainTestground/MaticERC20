@@ -21,4 +21,4 @@ truffle migrate --network matic --reset
 
 # Current version
 
-Currently deployed at `0x5EB8616aA0B124B31fC160F71C4C0476Df382b74`.
+Currently deployed at `0x6e63f7a5fB2AAF3de5754ab575ABb0778813be7f`.

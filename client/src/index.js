@@ -3,11 +3,8 @@ var accounts
 var web3
 
 const updateUi = async () => {
-  console.log("Polling state...")
   balance = await erc_contract.methods.balanceOf(accounts[0]).call()
   symbol = await erc_contract.methods.symbol().call()
-  console.log("==========")
-  console.log(balance)
   ui_msg.text = "Balance: " + balance/1000000000000000000 + " " + symbol
 
   staking_balance = await erc_contract.methods.stakingBalance(accounts[0]).call()
