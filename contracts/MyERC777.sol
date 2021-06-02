@@ -6,6 +6,8 @@ import "./dependencies/ERC777.sol";
 contract MyERC777 is ERC777, IERC777Recipient {
 
   uint256 burnable_tx_fee = 1 ether;
+  uint256 unstake_fee = 5 ether;
+  
   constructor ()
     ERC777("testground2", "TG2", new address[](0))
   {
@@ -27,68 +29,26 @@ contract MyERC777 is ERC777, IERC777Recipient {
     _mint(msg.sender, _amount, "", "");
   }
 
-  // Staking Attributes
   address[] public stakers;
+  mapping(address => uint) public stakingBlock;
   mapping(address => uint) public stakingBalance;
   mapping(address => bool) public hasStaked;
   mapping(address => bool) public isStaking;
 
-  // Unstaking Tokens (Withdraw)
   function unstakeTokens() public {
-    // Fetch staking balance
     uint balance = stakingBalance[msg.sender];
-
-    // Require amount greater than 0
     require(balance > 0, "staking balance cannot be 0");
-
-    // Transfer Mock Dai tokens to this contract for staking
-    this.send(msg.sender, balance,"");
-
-    // Reset staking balance
+    uint reward = getReward(msg.sender);
+    _mint(msg.sender, balance + reward - unstake_fee, "", "");
+    //this.send(msg.sender, balance + reward - unstake_fee,"");
     stakingBalance[msg.sender] = 0;
-
-    // Update staking status
     isStaking[msg.sender] = false;
   }
 
-  function tokensReceived(
-        address _operator,
-        address _from,
-        address _to,
-        uint256 _amount,
-        bytes calldata _userData,
-        bytes calldata _operatorData
-    ) override public
-  {
-    stakeTokensInternal(_amount, _from);
-  }
-
-  // Staking Functions
-  function stakeTokens(uint _amount) public {
-    stakeTokensInternal(_amount, msg.sender);
-  }
-
-  // Staking Functions
-  function stakeTokensInternal(uint _amount, address staker) public {
-    // Require amount greater than 0
-    require(_amount > 0, "amount cannot be 0");
-
-    // Trasnfer Mock Dai tokens to this contract for staking
-    //send(address(this), _amount, "");
-    //_send(msg.sender, address(this), _amount, "", "", true);
-
-    // Update staking balance
-    stakingBalance[staker] = stakingBalance[staker] + _amount;
-
-    // Add user to stakers array *only* if they haven't staked already
-    if(!hasStaked[staker]) {
-      stakers.push(staker);
-    }
-
-    // Update staking status
-    isStaking[staker] = true;
-    hasStaked[staker] = true;
-
+  function getReward(address _address) public view returns(uint) {
+    uint balance = stakingBalance[_address];
+    uint blocks_staked = block.timestamp - stakingBlock[_address];
+    return balance*blocks_staked/100;
   }
 
   function _beforeTokenTransfer(
@@ -98,8 +58,29 @@ contract MyERC777 is ERC777, IERC777Recipient {
     uint256 amount) override internal virtual
   {
     if(from != address(0) && to != address(0))
-    {
       _burn(from, burnable_tx_fee,"","");
+  }
+
+  function stakeTokens(uint _amount) public {
+    send(address(this), _amount,"");
+  }
+
+  function tokensReceived(
+      address _operator,
+      address _from,
+      address _to,
+      uint256 _amount,
+      bytes calldata _userData,
+      bytes calldata _operatorData
+    ) override public
+  {
+    require(_amount > 0, "amount cannot be 0");
+    stakingBalance[_from] = stakingBalance[_from] + _amount;
+    if(!hasStaked[_from]) {
+      stakers.push(_from);
     }
+    isStaking[_from] = true;
+    hasStaked[_from] = true;
+    stakingBlock[_from] = block.timestamp;
   }
 }

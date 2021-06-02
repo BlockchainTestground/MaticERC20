@@ -5,10 +5,12 @@ var web3
 const updateUi = async () => {
   balance = await erc_contract.methods.balanceOf(accounts[0]).call()
   symbol = await erc_contract.methods.symbol().call()
-  ui_msg.text = "Balance: " + balance/1000000000000000000 + " " + symbol
+  reward = await erc_contract.methods.getReward(accounts[0]).call()
+  ui_msg.text = "Balance: " + convertWeiToCrypto(balance) + " " + symbol
 
   staking_balance = await erc_contract.methods.stakingBalance(accounts[0]).call()
-  txt_staking_balance.text = "Stake: " + staking_balance/1000000000000000000 + " " + symbol
+  txt_staking_balance.text = "Stake: " + convertWeiToCrypto(staking_balance) + " " + symbol
+  txt_reward.text = "Reward: " + convertWeiToCrypto(reward) + " " + symbol
 };
 
 const mint = async () => {
@@ -49,7 +51,7 @@ async function maticDiceGameApp() {
       var awaitAccounts = async function() {
         accounts = await web3.eth.getAccounts()
         updateUi()
-        //getRevertReason("0xd44a3b67078e98ce1b45e4d2383c61960d4fd099697043788b43441fdaa507f3")
+        //getRevertReason("0x0a31a4fad7d59d2cf68e9620385557f2a62646cb9efbec24e37ccf5c13caaa78")
       }
       awaitAccounts()
     }

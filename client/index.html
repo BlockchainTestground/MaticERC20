@@ -22,6 +22,7 @@
   var _this
   var ui_msg
   var txt_staking_balance
+  var txt_reward
 
   function preload ()
   {
@@ -44,6 +45,7 @@
 
     ui_msg = this.add.text(50, 120, "", { font: "70px Arial Black", fill: "#00FFFF" })
     txt_staking_balance = this.add.text(50, 220, "", { font: "70px Arial Black", fill: "#00FFFF" })
+    txt_reward = this.add.text(50, 320, "", { font: "70px Arial Black", fill: "#00FFFF" })
 
     this.mintBtn = this.add.sprite(650, 50, 'button').setInteractive();
     this.mintBtn.on('pointerdown', function (event) {
